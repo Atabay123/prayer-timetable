@@ -1,0 +1,149 @@
+/* Общие стили для страницы */
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f4f7f6;
+	margin: 0;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	color: #333;
+}
+
+/* Главный контейнер */
+.container {
+	max-width: 600px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+#calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	/* 7 дней в неделю */
+	gap: 8px;
+	background: #ffffff;
+	padding: 15px;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Стилизация кнопок дней */
+#calendar button {
+	background-color: #f0f4f2;
+	border: none;
+	border-radius: 8px;
+	padding: 12px 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #4a5568;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+/* Эффект при наведении на день */
+#calendar button:hover {
+	background-color: #2c7a7b;
+	color: #ffffff;
+	transform: translateY(-2px);
+}
+
+/* Активное состояние кнопки (при нажатии) */
+#calendar button:active {
+	transform: translateY(0);
+}
+
+/* Контейнер для времени молитв по центру */
+#prayerTimePerDay {
+	background: #ffffff;
+	border-radius: 12px;
+	padding: 25px;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	border-top: 5px solid #2c7a7b;
+	/* Красивая верхняя линия */
+}
+
+
+/* Стиль для выбранного дня */
+#calendar button.selected {
+	background-color: #2c7a7b;
+	/* Фирменный зеленый цвет */
+	color: #ffffff;
+	/* Белый текст */
+
+	transform: scale(1.05);
+	/* Легкое увеличение кнопки для акцента */
+}
+
+/* Стили текста внутри карточки молитв */
+#prayerTimePerDay h2 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #2c7a7b;
+	font-size: 20px;
+}
+
+#prayerTimePerDay p {
+	display: flex;
+	justify-content: space-between;
+	/* Название слева, время справа */
+	padding: 10px 15px;
+	margin: 5px 0;
+	background-color: #f7fafc;
+	border-radius: 6px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+/* Выделение времени */
+#prayerTimePerDay p span {
+	font-weight: 700;
+	color: #2d3748;
+}
+
+/* Optimization for small screens */
+@media (max-width: 400px) {
+	#calendar {
+		gap: 4px;
+		/* Reduces space between buttons */
+		padding: 10px;
+	}
+
+	#calendar button {
+		padding: 8px 0;
+		/* Makes buttons slightly shorter */
+		font-size: 12px;
+		/* Shrinks text size slightly */
+	}
+}
+
+/* Контейнер для обратного отсчета */
+#nextPrayerCountdown {
+	background: linear-gradient(135deg, #2c7a7b, #236162);
+	color: #ffffff;
+	border-radius: 12px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	font-weight: 500;
+}
+
+/* Название следующей молитвы внутри контейнера */
+#nextPrayerCountdown .prayer-name {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	opacity: 0.9;
+	margin-bottom: 5px;
+}
+
+/* Сам таймер (цифры) */
+#nextPrayerCountdown .timer {
+	font-size: 32px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	/* Предотвращает дергание цифр при смене времени */
+	margin-top: 5px;
+}
